@@ -13,7 +13,7 @@ const Slide1 = (capaData: props) => {
         setData({
             username: 'sainas', 
             mes: 'novembro',
-        }, []);
+        }, );
     })
     console.log(capaData)
 
