@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 import Slide1 from './slides/slide1'
-import { useEffect, useState } from 'react';
+// import Slide2 from './slides/slide2'
 
 type props = {
     username: string;
