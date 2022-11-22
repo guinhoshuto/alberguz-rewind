@@ -8,8 +8,27 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 import Slide1 from './slides/slide1'
+import { useEffect, useState } from 'react';
+
+type props = {
+    username: string;
+    mes: string;
+}
 
 export default function Home(){
+  // const [capaData, setCapaData] = useState<props>({username: '', mes: ''})
+
+  // useEffect(() => {
+  //   setCapaData({
+  //     username: 'sainas', 
+  //     mes: 'novembro',
+  //   }, [])
+  // })
+  const capaData = {
+    username: 'sainas',
+    mes: 'novembro'
+  }
+
   return (
     <Swiper
       // install Swiper modules
@@ -22,11 +41,10 @@ export default function Home(){
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
     >
-      <SwiperSlide className="slider"><Slide1 /></SwiperSlide>
+      <SwiperSlide className="slider"><Slide1 capaData={capaData} /></SwiperSlide>
       <SwiperSlide>Slide 2</SwiperSlide>
       <SwiperSlide>Slide 3</SwiperSlide>
       <SwiperSlide>Slide 4</SwiperSlide>
-      ...
     </Swiper>
   );
 };
