@@ -41,7 +41,7 @@ export default function Home(){
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
     >
-      <SwiperSlide className="slider"><Slide1 capaData={capaData} /></SwiperSlide>
+      <SwiperSlide className="slider"><Slide1 {...capaData} /></SwiperSlide>
       <SwiperSlide>Slide 2</SwiperSlide>
       <SwiperSlide>Slide 3</SwiperSlide>
       <SwiperSlide>Slide 4</SwiperSlide>
