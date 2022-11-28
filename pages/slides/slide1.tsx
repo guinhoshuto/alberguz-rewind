@@ -22,8 +22,8 @@ const Slide1 = (capaData: props) => {
             <div className="flex md:items-center w-full h-full md:px-20 sm:px-1 sm:items-around">
                 <div>
                     <h1 className='md:text-8xl sm:text-5xl md:w-1/2 sm:w-full font-black'>
-                        oi&nbsp;<span className="text-azoxo inline">{data.username}</span>, 
-                        esse é o seu recalp de&nbsp;<span className='text-azoxo inline'>{data.mes}</span>
+                        oi <span className="text-azoxo inline">{data.username}</span>, 
+                        esse é o seu recalp de <span className='text-azoxo inline'>{data.mes}</span>
                     </h1>
                 </div>
             </div>
