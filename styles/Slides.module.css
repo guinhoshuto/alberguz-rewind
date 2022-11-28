@@ -4,6 +4,7 @@
     height: 100vh;
     width: 100vw;
     padding: 30px 15px;
+    display: flex;
 }
 
 .title{

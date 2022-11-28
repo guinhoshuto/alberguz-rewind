@@ -2,24 +2,26 @@ import styles from '../../styles/Slides.module.css'
 import { useEffect, useState } from 'react';
 
 type props = {
-    username: string;
-    mes: string;
+    qtd: number
+    periodo: string
 }
 
-const Slide2 = (messageData: props) => {
-    const [data, setData] = useState<props>({username: '', mes: ''})
+const Slide2 = (mensagens: props) => {
+    const [data, setData] = useState<props>({qtd: 0, periodo: ''})
 
     useEffect(() => {
         setData({
-            username: 'sainas', 
-            mes: 'novembro',
+            periodo: mensagens.periodo,
+            qtd: mensagens.qtd
         }, );
     })
     // console.log(capaData)
 
     return(
         <div className={styles.slides}>
-            <h1 className={styles.title}>oi {data.username}, esse é o seu recalp de {data.mes}</h1>
+            <div className='flex align-center h-full'>
+                <p>Em {data.periodo}, você enviou {data.qtd} mensagens</p>
+            </div>
             {/* <h1 className={styles.title}>oi {capaData.username}, esse é o seu recalp de {capaData.mes}</h1> */}
         </div>
     )

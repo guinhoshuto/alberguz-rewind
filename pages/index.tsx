@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 import Slide1 from './slides/slide1'
-// import Slide2 from './slides/slide2'
+import Slide2 from './slides/slide2'
 
 type props = {
     username: string;
@@ -29,6 +29,11 @@ export default function Home(){
     mes: 'novembro'
   }
 
+  const mensagens = {
+    periodo: 'novembro',
+    qtd: 11214
+  }
+
   return (
     <Swiper
       // install Swiper modules
@@ -42,7 +47,7 @@ export default function Home(){
       onSlideChange={() => console.log('slide change')}
     >
       <SwiperSlide className="slider"><Slide1 {...capaData} /></SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
+      <SwiperSlide><Slide2 {...mensagens} />></SwiperSlide>
       <SwiperSlide>Slide 3</SwiperSlide>
       <SwiperSlide>Slide 4</SwiperSlide>
     </Swiper>
