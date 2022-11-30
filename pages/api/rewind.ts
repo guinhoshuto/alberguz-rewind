@@ -22,6 +22,7 @@ export default async function handler(
   .then(([user]: any) => {
     //allmessages
     const allMessages = user.reduce((acc: number, messages: any) => acc + messages.messages, 0)
+    
 
     // res.json(user)
     res.json({

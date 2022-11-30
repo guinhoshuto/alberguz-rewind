@@ -15,7 +15,7 @@ const Slide1 = (capaData: props) => {
             mes: 'novembro',
         }, );
     })
-    console.log(capaData)
+    // console.log(capaData)
 
     return(
         <div className={styles.slides}>
