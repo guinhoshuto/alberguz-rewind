@@ -32,6 +32,7 @@ type dataProps = {
 // - palavra mais falada
 // - por dia
 // - quantos dias vc já está no server
+// - canais em que mais falou
 // - cassino?
 // - mencionado?
 // - resumo/obg
