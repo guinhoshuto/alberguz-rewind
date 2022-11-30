@@ -3,9 +3,8 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 require('dotenv').config()
 const mysql = require('mysql2/promise')
 
-
 type Data = {
-  name: string
+  username: string;
 }
 export default async function handler(
   req: NextApiRequest,

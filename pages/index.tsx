@@ -2,6 +2,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -37,7 +38,8 @@ type dataProps = {
 // - mencionado?
 // - resumo/obg
 
-export default function Home(){
+export default function Home(props: any){
+  console.log(props)
   const [data, setData] = useState<dataProps>({
     'username': 'sainas',
     'periodo': 'novembro',
@@ -85,3 +87,13 @@ export default function Home(){
     </Swiper>
   );
 };
+
+export async function getServerSideProps({query}: any){
+  const user_id = query.user_id
+  const userRecalp = await axios.get(`https://recalp.feras.club/api/rewind?id=${user_id}`)
+
+  return {
+    props: userRecalp.data
+  }
+
+}
