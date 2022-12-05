@@ -19,8 +19,12 @@ const Slide2 = (mensagens: props) => {
 
     return(
         <div className={styles.slides}>
-            <div className='flex align-center h-full'>
-                <p>Em {data.periodo}, você enviou {data.qtd} mensagens</p>
+            <div className='flex items-center justify-items-center h-full w-full'>
+                <div className='px-8 text-center w-full'>
+                    <p className='md:text-2xl sm:text-xl font-black'>Em <span className="text-azoxo">{data.periodo}</span>, você enviou</p>
+                    <p className='text-azoxo md:text-[220px] sm:text-6xl font-black'>{new Intl.NumberFormat('pt-BR').format(data.qtd)}</p>
+                    <p className='md:text-2xl sm:text-xl font-black'>mensagens</p>
+                </div>
             </div>
             {/* <h1 className={styles.title}>oi {capaData.username}, esse é o seu recalp de {capaData.mes}</h1> */}
         </div>
