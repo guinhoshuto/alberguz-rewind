@@ -90,6 +90,9 @@ export default function Home(props: any){
 
 export async function getServerSideProps({query}: any){
   const user_id = query.user_id
+  console.log(user_id, typeof(user_id))
+  console.log(`https://recalp.feras.club/api/rewind?id=${user_id}&periodo=2022`)
+
   const userRecalp = await axios.get(`https://recalp.feras.club/api/rewind?id=${user_id}&periodo=2022`)
   console.log(userRecalp.data)
 
