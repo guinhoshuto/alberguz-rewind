@@ -93,8 +93,8 @@ export async function getServerSideProps({query}: any){
   console.log(user_id, typeof(user_id))
   console.log(`https://recalp.feras.club/api/rewind?id=${user_id}&periodo=2022`)
 
-  // const userRecalp = await axios.get(`https://recalp.feras.club/api/rewind?id=${user_id}&periodo=2022`)
-  const userRecalp = await axios.get(`http://localhost:3000/api/rewind?id=${user_id}&periodo=2022`)
+  const userRecalp = await axios.get(`https://recalp.feras.club/api/rewind?id=${user_id}&periodo=2022`)
+  // const userRecalp = await axios.get(`http://localhost:3000/api/rewind?id=${user_id}&periodo=2022`)
   console.log(userRecalp.data)
 
   return {
