@@ -17,22 +17,22 @@ export default async function handler(
     query: {id, periodo} ,
     method,
   } = req;
-  const q = "SELECT * FROM `alberguz2022` WHERE author_id = " + id;
+  const q = "SELECT * FROM `recalp` WHERE user_id IN ('" + id + "', '189756724452786176') AND periodo='" + periodo +  "'";
+  // const q_all = "SELECT * FROM `recalp` WHERE user_id='1' AND periodo='" + periodo +  "'";
   connection.query(q) 
   .then(([user]: any) => {
     //allmessages
-    const allMessages = user.reduce((acc: number, messages: any) => acc + messages.messages, 0)
+    const userData = user.find((u:any) => u.user_id === id)
+    const serverData = user.find((u:any) => u.user_id === '189756724452786176')
+    console.log(userData, serverData)
     
-
     // res.json(user)
     res.json({
-      username: user[0].author,
+      username: userData.username,
       periodo: periodo,
-      allMessages: allMessages,
-      emojis: [{sentence: 'a', qtd: 1},{sentence: 'b', qtd: 2}, {sentence:'c', qtd:3}],
-      serverEmoji: {sentence: 'a', qtd: 1},
-      userPopularWord: {sentence: 'oi', qtd: 1},
-      serverPopularWord: {sentence: 'ciao', qtd: 1},
+      allMessages: parseInt(userData.all_messages),
+      serverAllMessages: parseInt(serverData.all_messages),
+
     })
   })
   .catch((e: any) => res.status(500).json(e))

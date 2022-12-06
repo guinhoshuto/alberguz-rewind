@@ -10,10 +10,7 @@ const Slide1 = (capaData: props) => {
     const [data, setData] = useState<props>({username: '', mes: ''})
 
     useEffect(() => {
-        setData({
-            username: 'sainas', 
-            mes: 'novembro',
-        }, );
+        setData(capaData)
     })
     // console.log(capaData)
 

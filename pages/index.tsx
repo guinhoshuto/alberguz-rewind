@@ -21,10 +21,11 @@ type dataProps = {
     username: string;
     periodo: string;
     allMessages: number;
-    emojis: Array<popularSentence>;
-    serverEmoji: popularSentence;
-    userPopularWord: popularSentence;
-    serverPopularWord: popularSentence;
+    serverAllMessages: number;
+    // emojis: Array<popularSentence>;
+    // serverEmoji: popularSentence;
+    // userPopularWord: popularSentence;
+    // serverPopularWord: popularSentence;
 }
 
 // x capa
@@ -39,20 +40,21 @@ type dataProps = {
 // - resumo/obg
 
 export default function Home(props: any){
-  console.log(props)
+  // console.log(props)
   const [data, setData] = useState<dataProps>({
     'username': 'sainas',
     'periodo': 'novembro',
-    'allMessages': 1221,
-    'emojis': [{sentence: 'a', qtd: 1},{sentence: 'b', qtd: 2}, {sentence:'c', qtd:3}],
-    'serverEmoji': {sentence: 'a', qtd: 1},
-    'userPopularWord': {sentence: 'oi', qtd: 1},
-    'serverPopularWord': {sentence: 'ciao', qtd: 1},
+    'allMessages': 1222,
+    'serverAllMessages': 12210,
+    // 'emojis': [{sentence: 'a', qtd: 1},{sentence: 'b', qtd: 2}, {sentence:'c', qtd:3}],
+    // 'serverEmoji': {sentence: 'a', qtd: 1},
+    // 'userPopularWord': {sentence: 'oi', qtd: 1},
+    // 'serverPopularWord': {sentence: 'ciao', qtd: 1},
   })
 
-  // useEffect(() => {
-
-  // }, )
+  useEffect(() => {
+    setData(props)
+  }, )
 
   const capaData = {
     username: data.username,
@@ -93,8 +95,8 @@ export async function getServerSideProps({query}: any){
   console.log(user_id, typeof(user_id))
   console.log(`https://recalp.feras.club/api/rewind?id=${user_id}&periodo=2022`)
 
-  const userRecalp = await axios.get(`https://recalp.feras.club/api/rewind?id=${user_id}&periodo=2022`)
-  // const userRecalp = await axios.get(`http://localhost:3000/api/rewind?id=${user_id}&periodo=2022`)
+  // const userRecalp = await axios.get(`https://recalp.feras.club/api/rewind?id=${user_id}&periodo=2022`)
+  const userRecalp = await axios.get(`http://localhost:3000/api/rewind?id=${user_id}&periodo=2022`)
   console.log(userRecalp.data)
 
   return {
