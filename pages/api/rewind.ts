@@ -8,7 +8,7 @@ type Data = {
 }
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<any>
+  res: NextApiResponse
 ) {
   const connection = await mysql.createConnection(process.env.DATABASE_URL)
   console.log('Connected to PlanetScale!')
@@ -27,7 +27,7 @@ export default async function handler(
     console.log(userData, serverData)
     
     // res.json(user)
-    res.json({
+    res.status(200).json({
       username: userData.username,
       periodo: periodo,
       allMessages: parseInt(userData.all_messages),
