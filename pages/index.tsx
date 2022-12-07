@@ -11,6 +11,8 @@ import 'swiper/css/scrollbar';
 
 import Slide1 from './slides/slide1'
 import Slide2 from './slides/slide2'
+import Slide3 from './slides/slide3'
+import Valeu from './slides/valeu'
 
 interface popularSentence{
   sentence: string;
@@ -29,14 +31,10 @@ type dataProps = {
 }
 
 // x capa
-// x mandou x mensagens
-// - emoji mais usado
-// - palavra mais falada
-// - por dia
 // - quantos dias vc já está no server
+// x mandou x mensagens
+// - por dia
 // - canais em que mais falou
-// - cassino?
-// - mencionado?
 // - resumo/obg
 
 export default function Home(props: any){
@@ -63,13 +61,14 @@ export default function Home(props: any){
 
   const mensagens = {
     periodo: data.periodo,
-    qtd: data.allMessages
+    qtd: data.allMessages,
+    qtdAll: data.serverAllMessages
   }
 
-  const emojis = {
-    emojis: data.emojis,
-    serverEmoji: data.serverEmoji
-  }
+  // const emojis = {
+  //   emojis: data.emojis,
+  //   serverEmoji: data.serverEmoji
+  // }
 
   return (
     <Swiper
@@ -84,8 +83,8 @@ export default function Home(props: any){
     >
       <SwiperSlide className="slider"><Slide1 {...capaData} /></SwiperSlide>
       <SwiperSlide><Slide2 {...mensagens} /></SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
+      <SwiperSlide><Slide3 {...mensagens}/></SwiperSlide>
+      <SwiperSlide><Valeu /></SwiperSlide>
     </Swiper>
   );
 };
@@ -95,8 +94,8 @@ export async function getServerSideProps({query}: any){
   console.log(user_id, typeof(user_id))
   console.log(`https://recalp.feras.club/api/rewind?id=${user_id}&periodo=2022`)
 
-  // const userRecalp = await axios.get(`https://recalp.feras.club/api/rewind?id=${user_id}&periodo=2022`)
-  const userRecalp = await axios.get(`http://localhost:3000/api/rewind?id=${user_id}&periodo=2022`)
+  const userRecalp = await axios.get(`https://recalp.feras.club/api/rewind?id=${user_id}&periodo=2022`)
+  // const userRecalp = await axios.get(`http://localhost:3000/api/rewind?id=${user_id}&periodo=2022`)
   console.log(userRecalp.data)
 
   return {

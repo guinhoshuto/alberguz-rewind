@@ -17,13 +17,13 @@ export default async function handler(
     query: {id, periodo} ,
     method,
   } = req;
-  const q = "SELECT * FROM `recalp` WHERE user_id IN ('" + id + "', '189756724452786176') AND periodo='" + periodo +  "'";
+  const q = "SELECT * FROM `recalp` WHERE user_id IN ('" + id + "', '1') AND periodo='" + periodo +  "'";
   // const q_all = "SELECT * FROM `recalp` WHERE user_id='1' AND periodo='" + periodo +  "'";
   connection.query(q) 
   .then(([user]: any) => {
     //allmessages
     const userData = user.find((u:any) => u.user_id === id)
-    const serverData = user.find((u:any) => u.user_id === '189756724452786176')
+    const serverData = user.find((u:any) => u.user_id === '1')
     console.log(userData, serverData)
     
     // res.json(user)
