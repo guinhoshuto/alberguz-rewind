@@ -38,7 +38,7 @@ type dataProps = {
 // - resumo/obg
 
 export default function Home(props: any){
-  // console.log(props)
+  console.log(props)
   const [data, setData] = useState<dataProps>({
     'username': 'sainas',
     'periodo': 'novembro',
