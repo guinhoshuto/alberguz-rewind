@@ -7,6 +7,11 @@ const mysql = require('mysql2/promise')
 type Data = {
   username: string;
 }
+
+function blobToJson(b: any){
+  return JSON.parse(Buffer.from(b).toString().replaceAll("'", "\""))
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -36,8 +41,8 @@ export default async function handler(
       periodo: periodo,
       allMessages: parseInt(userData.all_messages),
       serverAllMessages: parseInt(serverData.all_messages),
-      messagesByMonth: Buffer.from(userData.messages_by_period).toString(),
-      messagesByChannel: Buffer.from(userData.messages_by_channel).toString()
+      messagesByMonth: blobToJson(userData.messages_by_period),
+      messagesByChannel: blobToJson(userData.messages_by_channel)
     })
   })
   .catch((e: any) => res.status(500).json(e))
