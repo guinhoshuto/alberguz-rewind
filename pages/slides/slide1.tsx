@@ -1,5 +1,6 @@
 import styles from '../../styles/Slides.module.css'
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 type props = {
     username: string;
@@ -11,7 +12,7 @@ const Slide1 = (capaData: props) => {
 
     useEffect(() => {
         setData(capaData)
-    }, [])
+    } )
     // console.log(capaData)
 
     return(
@@ -23,7 +24,7 @@ const Slide1 = (capaData: props) => {
                         esse é o seu recalp de <span className='text-azoxo inline'>{data.mes}</span>
                     </h1>
                 </div>
-                <img src="./pamonha.gif" className="mr-16" alt="" />
+                <Image src="/pamonha.gif" className="mr-16" width={500} height={500} alt="" />
             </div>
             {/* <h1 className={styles.title}>oi {capaData.username}, esse é o seu recalp de {capaData.mes}</h1> */}
         </div>

@@ -17,7 +17,7 @@ const JoinedAt = (joinedDate: any) => {
             date: date.toLocaleDateString('pt-BR'), 
             days: Math.floor((Date.now() - Date.parse(joinedDate.timestamp))/(1000*60*60*24))
         })
-    }, [])
+    })
     // console.log(capaData)
 
     return(

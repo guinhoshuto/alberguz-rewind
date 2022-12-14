@@ -16,7 +16,7 @@ const AllMessages = (mensagens: props) => {
             qtd: mensagens.qtd,
             qtdAll: mensagens.qtdAll
         }, );
-    }, [])
+    })
     // console.log(capaData)
 
     return(

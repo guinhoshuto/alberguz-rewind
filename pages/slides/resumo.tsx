@@ -11,7 +11,7 @@ const Resumo = (resumo: any) => {
 
     useEffect(() => {
         setData(resumo)
-    }, [])
+    })
     // console.log(capaData)
 
     return(
