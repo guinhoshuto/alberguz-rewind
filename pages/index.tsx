@@ -1,5 +1,4 @@
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -10,9 +9,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 import Slide1 from './slides/slide1'
-import Slide2 from './slides/slide2'
-import Slide3 from './slides/slide3'
+import AllMessages from './slides/allMessages'
+import MessagesByPeriod from './slides/messagesByPeriod'
+import MessagesByChannel from './slides/messagesByChannel'
 import Valeu from './slides/valeu'
+import JoinedAt from './slides/joinedAt'
+import Resumo from './slides/resumo'
 
 interface popularSentence{
   sentence: string;
@@ -24,6 +26,10 @@ type dataProps = {
     periodo: string;
     allMessages: number;
     serverAllMessages: number;
+    messagesByMonth: any;
+    messagesByChannel: any;
+    joinedAt: string;
+    profilePicture: string;
     // emojis: Array<popularSentence>;
     // serverEmoji: popularSentence;
     // userPopularWord: popularSentence;
@@ -44,15 +50,15 @@ export default function Home(props: any){
     'periodo': 'novembro',
     'allMessages': 1222,
     'serverAllMessages': 12210,
-    // 'emojis': [{sentence: 'a', qtd: 1},{sentence: 'b', qtd: 2}, {sentence:'c', qtd:3}],
-    // 'serverEmoji': {sentence: 'a', qtd: 1},
-    // 'userPopularWord': {sentence: 'oi', qtd: 1},
-    // 'serverPopularWord': {sentence: 'ciao', qtd: 1},
+    'messagesByMonth': {},
+    'messagesByChannel': {},
+    'joinedAt': '',
+    'profilePicture': ''
   })
 
   useEffect(() => {
     setData(props)
-  }, )
+  }, [])
 
   const capaData = {
     username: data.username,
@@ -64,6 +70,17 @@ export default function Home(props: any){
     qtd: data.allMessages,
     qtdAll: data.serverAllMessages
   }
+
+  const joinedAt = {
+    timestamp: data.joinedAt
+  }
+
+  const resumo = {
+    timestamp: data.joinedAt
+  }
+
+  const messagesByPeriod = data.messagesByMonth
+  const messagesByChannel = data.messagesByChannel
 
   // const emojis = {
   //   emojis: data.emojis,
@@ -82,8 +99,11 @@ export default function Home(props: any){
       onSlideChange={() => console.log('slide change')}
     >
       <SwiperSlide className="slider"><Slide1 {...capaData} /></SwiperSlide>
-      <SwiperSlide><Slide2 {...mensagens} /></SwiperSlide>
-      <SwiperSlide><Slide3 {...mensagens}/></SwiperSlide>
+      <SwiperSlide><JoinedAt {...joinedAt} /></SwiperSlide>
+      <SwiperSlide><AllMessages {...mensagens} /></SwiperSlide>
+      {/* <SwiperSlide><MessagesByPeriod {...messagesByPeriod}/></SwiperSlide>
+      <SwiperSlide><MessagesByChannel {...messagesByChannel}/></SwiperSlide> */}
+      <SwiperSlide><Resumo {...resumo} /></SwiperSlide>
       <SwiperSlide><Valeu /></SwiperSlide>
     </Swiper>
   );
@@ -91,17 +111,13 @@ export default function Home(props: any){
 
 export async function getServerSideProps({query}: any){
   const user_id = query.user_id
-  console.log(user_id, typeof(user_id))
   const api = `https://recalp.feras.club/api/rewind?id=${user_id}&periodo=2022`
-  console.log(api)
+  // const api = `http://localhost:3000/api/rewind?id=${user_id}&periodo=2022`
 
-  // const userRecalp = await axios.get(api)
   const userRecalp = await fetch(api)
   const data = await userRecalp.json()
-  // const userRecalp = await axios.get(`http://localhost:3000/api/rewind?id=${user_id}&periodo=2022`)
 
   return {
-    // props: JSON.parse(JSON.stringify(userRecalp.data))
     props: data 
   }
 

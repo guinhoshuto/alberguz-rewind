@@ -7,7 +7,7 @@ type props = {
     periodo: string
 }
 
-const Slide2 = (mensagens: props) => {
+const AllMessages = (mensagens: props) => {
     const [data, setData] = useState<props>({qtd: 0, qtdAll:0, periodo: ''})
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const Slide2 = (mensagens: props) => {
             qtd: mensagens.qtd,
             qtdAll: mensagens.qtdAll
         }, );
-    })
+    }, [])
     // console.log(capaData)
 
     return(
@@ -33,4 +33,4 @@ const Slide2 = (mensagens: props) => {
     )
 }
 
-export default Slide2;
+export default AllMessages;

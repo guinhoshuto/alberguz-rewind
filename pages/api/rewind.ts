@@ -9,7 +9,11 @@ type Data = {
 }
 
 function blobToJson(b: any){
-  return JSON.parse(Buffer.from(b).toString().replaceAll("'", "\""))
+  const arr:any[] = []
+  JSON.parse(Buffer.from(b).toString().replaceAll("'", "\""), (key, value) => {
+    arr.push({key: key, value: value})
+  })
+  return arr
 }
 
 export default async function handler(
@@ -34,7 +38,6 @@ export default async function handler(
     // userData.messages_by_period.text().then((a: any) => console.log(a))
     // console.log(userData.messages_by_period.text())
 
-
     // res.json(user)
     res.status(200).json({
       username: userData.username,
@@ -42,7 +45,9 @@ export default async function handler(
       allMessages: parseInt(userData.all_messages),
       serverAllMessages: parseInt(serverData.all_messages),
       messagesByMonth: blobToJson(userData.messages_by_period),
-      messagesByChannel: blobToJson(userData.messages_by_channel)
+      messagesByChannel: blobToJson(userData.messages_by_channel),
+      joinedAt: userData.joined_at,
+      profilePicture: userData.avatar
     })
   })
   .catch((e: any) => res.status(500).json(e))

@@ -7,17 +7,13 @@ type props = {
     periodo: string
 }
 
-const Slide3 = (mensagens: props) => {
+const MessagesByChannel = (messagesByChannel: props) => {
     const [data, setData] = useState<props>({qtd: 0, qtdAll: 0, periodo: ''})
 
     useEffect(() => {
-        setData({
-            periodo: mensagens.periodo,
-            qtd: mensagens.qtd,
-            qtdAll: mensagens.qtdAll
-        }, );
-    })
-    // console.log(capaData)
+        setData(messagesByChannel, );
+    }, [])
+    console.log(data)
 
     return(
         <div className={styles.slides}>
@@ -33,4 +29,4 @@ const Slide3 = (mensagens: props) => {
     )
 }
 
-export default Slide3;
+export default MessagesByChannel;
