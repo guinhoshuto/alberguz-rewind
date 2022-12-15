@@ -9,6 +9,7 @@ const MessagesByPeriod = (messagesByPeriod: any) => {
     //     setData(messagesByPeriod)
     // }, )
     // console.log(capaData)
+    console.log(messagesByPeriod)
 
     return(
         <div className={styles.slides}>

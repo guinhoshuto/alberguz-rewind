@@ -16,10 +16,10 @@ import Valeu from './slides/valeu'
 import JoinedAt from './slides/joinedAt'
 import Resumo from './slides/resumo'
 
-interface popularSentence{
-  sentence: string;
-  qtd: number;
-}
+// interface popularSentence{
+//   sentence: string;
+//   qtd: number;
+// }
 
 type dataProps = {
     username: string;
@@ -44,7 +44,7 @@ type dataProps = {
 // - resumo/obg
 
 export default function Home(props: any){
-  console.log('props', props)
+  // console.log('props', props)
   const [data, setData] = useState<dataProps>({
     'username': 'sainas',
     'periodo': 'novembro',
@@ -101,8 +101,8 @@ export default function Home(props: any){
       <SwiperSlide className="slider"><Slide1 {...capaData} /></SwiperSlide>
       <SwiperSlide><JoinedAt {...joinedAt} /></SwiperSlide>
       <SwiperSlide><AllMessages {...mensagens} /></SwiperSlide>
-      {/* <SwiperSlide><MessagesByPeriod {...messagesByPeriod}/></SwiperSlide>
-      <SwiperSlide><MessagesByChannel {...messagesByChannel}/></SwiperSlide> */}
+      <SwiperSlide><MessagesByPeriod {...messagesByPeriod}/></SwiperSlide>
+      <SwiperSlide><MessagesByChannel {...messagesByChannel}/></SwiperSlide> 
       <SwiperSlide><Resumo {...resumo} /></SwiperSlide>
       <SwiperSlide><Valeu /></SwiperSlide>
     </Swiper>

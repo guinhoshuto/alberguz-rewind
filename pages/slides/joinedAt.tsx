@@ -7,18 +7,23 @@ import { useEffect, useState } from 'react';
 // }
 
 const JoinedAt = (joinedDate: any) => {
-    const [data, setData] = useState<any>({date: '', days: ''})
+    // const [data, setData] = useState<any>({date: '', days: ''})
 
-    useEffect(() => {
-        const date = new Date(Date.parse(joinedDate.timestamp))
-        // const date = new Date(joinedDate.timestamp)
+    // useEffect(() => {
+    //     const date = new Date(Date.parse(joinedDate.timestamp))
+    //     // const date = new Date(joinedDate.timestamp)
 
-        setData({
-            date: date.toLocaleDateString('pt-BR'), 
-            days: Math.floor((Date.now() - Date.parse(joinedDate.timestamp))/(1000*60*60*24))
-        })
-    })
+    //     setData({
+    //         date: date.toLocaleDateString('pt-BR'), 
+    //         days: Math.floor((Date.now() - Date.parse(joinedDate.timestamp))/(1000*60*60*24))
+    //     })
+    // }, [joinedDate.timestamp])
     // console.log(capaData)
+    const date = new Date(Date.parse(joinedDate.timestamp))
+    const data = {
+        date: date.toLocaleDateString('pt-BR'), 
+        days: Math.floor((Date.now() - Date.parse(joinedDate.timestamp))/(1000*60*60*24))
+    }
 
     return(
         <div className={styles.slides}>

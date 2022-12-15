@@ -7,11 +7,11 @@ import { useEffect, useState } from 'react';
 // }
 
 const Resumo = (resumo: any) => {
-    const [data, setData] = useState<any>({timestamp: ''})
+    // const [data, setData] = useState<any>({timestamp: ''})
 
-    useEffect(() => {
-        setData(resumo)
-    })
+    // useEffect(() => {
+    //     setData(resumo)
+    // })
     // console.log(capaData)
 
     return(

@@ -8,12 +8,13 @@ type props = {
 }
 
 const Slide1 = (capaData: props) => {
-    const [data, setData] = useState<props>({username: '', mes: ''})
+    // const [data, setData] = useState<props>({username: '', mes: ''})
 
-    useEffect(() => {
-        setData(capaData)
-    } )
+    // useEffect(() => {
+    //     setData(capaData)
+    // } )
     // console.log(capaData)
+    const data = capaData
 
     return(
         <div className={styles.slides}>
