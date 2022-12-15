@@ -101,8 +101,8 @@ export default function Home(props: any){
       <SwiperSlide className="slider"><Slide1 {...capaData} /></SwiperSlide>
       <SwiperSlide><JoinedAt {...joinedAt} /></SwiperSlide>
       <SwiperSlide><AllMessages {...mensagens} /></SwiperSlide>
-      <SwiperSlide><MessagesByPeriod {...messagesByPeriod}/></SwiperSlide>
-      <SwiperSlide><MessagesByChannel {...messagesByChannel}/></SwiperSlide> 
+      {/* <SwiperSlide><MessagesByPeriod {...messagesByPeriod}/></SwiperSlide> */}
+      {/* <SwiperSlide><MessagesByChannel {...messagesByChannel}/></SwiperSlide>  */}
       <SwiperSlide><Resumo {...resumo} /></SwiperSlide>
       <SwiperSlide><Valeu /></SwiperSlide>
     </Swiper>

@@ -1,5 +1,5 @@
 import styles from '../../styles/Slides.module.css'
-import { useEffect, useState } from 'react';
+import { formatNumber } from '../utils'
 
 type props = {
     qtd: number
@@ -30,7 +30,7 @@ const AllMessages = (mensagens: props) => {
                 <div className='px-8 text-center w-full'>
                     <p className='md:text-4xl sm:text-xl font-black'>Em <span className="text-azoxo">{data.periodo}</span>, você enviou</p>
                     <p className='text-azoxo md:text-[220px] sm:text-6xl font-black'>{new Intl.NumberFormat('pt-BR').format(data.qtd)}</p><br/>
-                    <p className='md:text-4xl sm:text-xl font-black'>mensagens. No servidor foram <span className="text-azoxo">{new Intl.NumberFormat('pt-BR').format(data.qtdAll)}</span> 🎉</p>
+                    <p className='md:text-4xl sm:text-xl font-black'>mensagens. No servidor foram <span className="text-azoxo">{formatNumber(data.qtdAll)}</span> 🎉</p>
                 </div>
             </div>
             {/* <h1 className={styles.title}>oi {capaData.username}, esse é o seu recalp de {capaData.mes}</h1> */}

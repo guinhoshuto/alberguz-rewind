@@ -10,7 +10,7 @@ type props = {
 
 type monthProp = {
     key: string;
-    value: string
+    value: string 
 }
 
 const MessagesByPeriod = (messagesByPeriod: props[]) => {
@@ -35,26 +35,25 @@ const MessagesByPeriod = (messagesByPeriod: props[]) => {
     // // console.log(messagesByPeriod)
     // // const mostMessagedMonth = Math.max(...Object.keys(messagesByPeriod).map((m: any) => m.value))
     // // console.log(mostMessagedMonth)
-    console.log(messagesByPeriod)
+    console.log('messagesByPeriod', messagesByPeriod)
 
     const messagesCounts = Object.values(messagesByPeriod).map((m: props) => m.value)
-    console.log(messagesCounts)
+    console.log('counts',messagesCounts)
     messagesCounts.pop()
     const mostMessagedMonth: props = Object.values(messagesByPeriod).find((m: any) => m.value === Math.max(...messagesCounts))
-    const monthName: monthProp = months.find((m: monthProp) => m.key === mostMessagedMonth?.key)
+    const monthName: monthProp = months.find((m: monthProp) => m.key === mostMessagedMonth.key)
     // mostMessagedMonth.monthName = monthName?.month
     console.log(mostMessagedMonth)
+    console.log(monthName)
 
     return(
         <div className={styles.slides}>
             <div className='flex items-center justify-items-center h-full w-full'>
                 <div className='px-8 text-center w-full'>
                     <h1 className="text-4xl font-black mb-16">
-                        <span className='text-azoxo'>{monthName}</span> foi o mês em que você mais mandou mensagens, <br/>
+                        <span className='text-azoxo'>{monthName.month}</span> foi o mês em que você mais mandou mensagens, <br/>
                          foram <span className="text-azoxo">{new Intl.NumberFormat('pt-BR').format(mostMessagedMonth.value)}</span>!!!!!!!
                     </h1>
-                    {/* <p className='md:text-2xl sm:text-xl font-black'>Em <span className="text-azoxo">{data.periodo}</span>, você enviou</p>
-                    <p className='text-azoxo md:text-[220px] sm:text-6xl font-black'>{new Intl.NumberFormat('pt-BR').format(data.qtd)}</p> */}
                     <BarChart {...messagesByPeriod} />
 
                 </div>
