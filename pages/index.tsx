@@ -120,7 +120,7 @@ export default function Home(props: any){
 
 export async function getServerSideProps({query}: any){
   const user_id = query.user_id
-  const api = `https://recalp.feras.lub/api/rewind?id=${user_id}&periodo=2022`
+  const api = `https://recalp.feras.club/api/rewind?id=${user_id}&periodo=2022`
   // const api = `http://localhost:3000/api/rewind?id=${user_id}&periodo=2022`
 
   const userRecalp = await fetch(api)
