@@ -58,7 +58,7 @@ export default function Home(props: any){
 
   useEffect(() => {
     setData(props)
-  }, [])
+  }, )
 
   const capaData = {
     username: data.username,
