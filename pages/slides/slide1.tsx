@@ -18,9 +18,9 @@ const Slide1 = (capaData: props) => {
 
     return(
         <div className={styles.slides}>
-            <div className="flex md:items-center w-full h-full md:px-20 sm:px-1 sm:items-around md:flex-row sm:flex-column">
+            <div className="flex items-around justify-center w-full h-full md:px-20 sm:px-1 md:items-center flex-col lg:flex-row md:flex-row">
                 <div>
-                    <h1 className='md:text-8xl sm:text-5xl md:w-1/2 sm:w-full font-black'>
+                    <h1 className='md:text-8xl text-5xl md:w-1/2 sm:w-full font-black text-center md:text-left lg:text-left'>
                         oi <span className="text-azoxo inline">{data.username}</span>, 
                         esse é o seu recalp de <span className='text-azoxo inline'>{data.mes}</span>
                     </h1>

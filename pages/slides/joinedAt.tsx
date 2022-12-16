@@ -28,9 +28,9 @@ const JoinedAt = (joinedDate: any) => {
 
     return(
         <div className={styles.slides}>
-            <div className="flex md:items-center w-full h-full md:px-20 sm:px-1 sm:items-around">
+            <div className="flex items-center w-full h-full md:px-20 px-8">
                 <div>
-                    <h1 className='md:text-8xl sm:text-5xl md:w-1/2 sm:w-full font-black'>
+                    <h1 className='lg:text-8xl md:text-8xl text-4xl md:w-1/2 sm:w-full font-black'>
                         Você chegou aqui no dia <span className="text-azoxo inline">{data.date}</span> <br/><br/>
                         são <span className="text-azoxo">{data.days} dias</span> de Alberguz
                     </h1>
