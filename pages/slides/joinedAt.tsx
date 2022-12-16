@@ -1,5 +1,6 @@
 import styles from '../../styles/Slides.module.css'
 import { useEffect, useState } from 'react';
+import { daysElapsed } from '../../utils';
 
 // type props = {
 //     username: string;
@@ -22,7 +23,7 @@ const JoinedAt = (joinedDate: any) => {
     const date = new Date(Date.parse(joinedDate.timestamp))
     const data = {
         date: date.toLocaleDateString('pt-BR'), 
-        days: Math.floor((Date.now() - Date.parse(joinedDate.timestamp))/(1000*60*60*24))
+        days: daysElapsed(joinedDate.timestamp)
     }
 
     return(

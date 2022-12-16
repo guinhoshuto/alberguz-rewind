@@ -76,7 +76,13 @@ export default function Home(props: any){
   }
 
   const resumo = {
-    timestamp: data.joinedAt
+    username: data.username,
+    avatar: data.profilePicture,
+    qtd: data.allMessages,
+    qtdAll: data.serverAllMessages,
+    mostMessagedChannel: data.messagesByChannel.mostMessagedChannel,
+    mostMessagedChannelMessages: data.messagesByChannel.mostMessagedChannelMessages,
+    joinedAt: data.joinedAt
   }
 
   // const messagesByPeriod = data.messagesByMonth

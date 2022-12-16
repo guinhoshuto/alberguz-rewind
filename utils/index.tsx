@@ -9,5 +9,9 @@ export const getObjectWithMostMessages = (o: any) => {
     return Object.values(o).find((m: any) => m.value === Math.max(...messagesCounts))
 }
 
+export const daysElapsed = (days: any) => {
+    return Math.floor((Date.now() - Date.parse(days))/(1000*60*60*24))
+}
+
 // const utils = {formatNumber, getObjectWithMostMessages}
 // export default utils
