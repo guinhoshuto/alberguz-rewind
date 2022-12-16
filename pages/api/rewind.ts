@@ -31,10 +31,11 @@ export default async function handler(
   // const q_all = "SELECT * FROM `recalp` WHERE user_id='1' AND periodo='" + periodo +  "'";
   connection.query(q) 
   .then(([user]: any) => {
+    // console.log(id, periodo)
     //allmessages
     const userData = user.find((u:any) => u.user_id === id)
     const serverData = user.find((u:any) => u.user_id === '1')
-    // console.log(userData, serverData)
+    console.log(userData, serverData)
     // userData.messages_by_period.text().then((a: any) => console.log(a))
     // console.log(userData.messages_by_period.text())
     // const messagesByMonth = getObjectWithMostMessages(blobToJson(userData.messages_by_period))
@@ -54,7 +55,8 @@ export default async function handler(
       channels: blobToJson(userData.messages_by_channel)
     }
 
-    const avatar = userData.user_id === '173273321612378112' ? 'https://cdn.discordapp.com/avatars/173273321612378112/f744329c97fc907382ed4e2fef642568.png?size=1024' : userData.avatar
+    // const avatar = userData.user_id === '173273321612378112' ? 'https://cdn.discordapp.com/avatars/173273321612378112/f744329c97fc907382ed4e2fef642568.png?size=1024' : userData.avatar;
+    // console.log(avatar)
 
     // res.json(user)
     res.status(200).json({
@@ -65,7 +67,7 @@ export default async function handler(
       messagesByMonth: messagesByMonth,
       messagesByChannel: messagesByChannel,
       joinedAt: userData.joined_at,
-      profilePicture: avatar
+      profilePicture: userData.avatar
     })
   })
   .catch((e: any) => res.status(500).json(e))
