@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-// const buffer = new Buffer(blob)
+import { getObjectWithMostMessages } from '../utils';
 
 require('dotenv').config()
 const mysql = require('mysql2/promise')
@@ -37,6 +37,22 @@ export default async function handler(
     // console.log(userData, serverData)
     // userData.messages_by_period.text().then((a: any) => console.log(a))
     // console.log(userData.messages_by_period.text())
+    // const messagesByMonth = getObjectWithMostMessages(blobToJson(userData.messages_by_period))
+    const mostMessagedMonth: any = getObjectWithMostMessages(blobToJson(userData.messages_by_period))
+    const messagesByMonth = {
+      period: periodo,
+      mostMessagedMonth: mostMessagedMonth.key,
+      mostMessagedMonthMessages: mostMessagedMonth.value,
+      months: blobToJson(userData.messages_by_period)
+    }
+
+    const mostMessagedChannel: any = getObjectWithMostMessages(blobToJson(userData.messages_by_channel))
+    const messagesByChannel = {
+      period: periodo,
+      mostMessagedChannel: mostMessagedChannel.key,
+      mostMessagedChannelMessages: mostMessagedChannel.value,
+      channels: blobToJson(userData.messages_by_channel)
+    }
 
     // res.json(user)
     res.status(200).json({
@@ -44,8 +60,8 @@ export default async function handler(
       periodo: periodo,
       allMessages: parseInt(userData.all_messages),
       serverAllMessages: parseInt(serverData.all_messages),
-      messagesByMonth: blobToJson(userData.messages_by_period),
-      messagesByChannel: blobToJson(userData.messages_by_channel),
+      messagesByMonth: messagesByMonth,
+      messagesByChannel: messagesByChannel,
       joinedAt: userData.joined_at,
       profilePicture: userData.avatar
     })

@@ -79,8 +79,17 @@ export default function Home(props: any){
     timestamp: data.joinedAt
   }
 
-  const messagesByPeriod = data.messagesByMonth
-  const messagesByChannel = data.messagesByChannel
+  // const messagesByPeriod = data.messagesByMonth
+  const messagesByPeriod = {
+    mostMessagedMonth: data.messagesByMonth.mostMessagedMonth,
+    mostMessagedMonthMessages: data.messagesByMonth.mostMessagedMonthMessages,
+    months: data.messagesByMonth.months
+  }
+  const messagesByChannel = {
+    channels: data.messagesByChannel.channels,
+    mostMessagedChannel: data.messagesByChannel.mostMessagedChannel,
+    mostMessagedChannelMessages: data.messagesByChannel.mostMessagedChannelMessages
+  }
 
   // const emojis = {
   //   emojis: data.emojis,
@@ -101,8 +110,8 @@ export default function Home(props: any){
       <SwiperSlide className="slider"><Slide1 {...capaData} /></SwiperSlide>
       <SwiperSlide><JoinedAt {...joinedAt} /></SwiperSlide>
       <SwiperSlide><AllMessages {...mensagens} /></SwiperSlide>
-      {/* <SwiperSlide><MessagesByPeriod {...messagesByPeriod}/></SwiperSlide> */}
-      {/* <SwiperSlide><MessagesByChannel {...messagesByChannel}/></SwiperSlide>  */}
+      <SwiperSlide><MessagesByPeriod {...messagesByPeriod}/></SwiperSlide>
+      <SwiperSlide><MessagesByChannel {...messagesByChannel}/></SwiperSlide> 
       <SwiperSlide><Resumo {...resumo} /></SwiperSlide>
       <SwiperSlide><Valeu /></SwiperSlide>
     </Swiper>
@@ -111,8 +120,8 @@ export default function Home(props: any){
 
 export async function getServerSideProps({query}: any){
   const user_id = query.user_id
-  const api = `https://recalp.feras.lub/api/rewind?id=${user_id}&periodo=2022`
-  // const api = `http://localhost:3000/api/rewind?id=${user_id}&periodo=2022`
+  // const api = `https://recalp.feras.lub/api/rewind?id=${user_id}&periodo=2022`
+  const api = `http://localhost:3000/api/rewind?id=${user_id}&periodo=2022`
 
   const userRecalp = await fetch(api)
   const data = await userRecalp.json()
