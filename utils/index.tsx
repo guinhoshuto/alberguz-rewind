@@ -4,6 +4,7 @@ export const formatNumber = (n: number) => {
 }
 
 export const getObjectWithMostMessages = (o: any) => {
+    console.log(o)
     const messagesCounts = Object.values(o).map((m: any) => m.value)
     messagesCounts.pop()
     return Object.values(o).find((m: any) => m.value === Math.max(...messagesCounts))
