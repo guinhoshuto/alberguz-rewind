@@ -8,3 +8,6 @@ export const getObjectWithMostMessages = (o: any) => {
     messagesCounts.pop()
     return Object.values(o).find((m: any) => m.value === Math.max(...messagesCounts))
 }
+
+const utils = {formatNumber, getObjectWithMostMessages}
+export default utils
