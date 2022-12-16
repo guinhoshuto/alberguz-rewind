@@ -16,7 +16,7 @@ const BarChart = (props: any) => {
     }
 
     return(
-        <div>
+        <div className="px-16">
             <Bar data={data} /> 
         </div>
     )
