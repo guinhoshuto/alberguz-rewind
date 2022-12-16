@@ -1,5 +1,5 @@
 import styles from '../../styles/Slides.module.css'
-import { formatNumber } from '../utils'
+import { formatNumber } from '../../utils'
 
 type props = {
     qtd: number

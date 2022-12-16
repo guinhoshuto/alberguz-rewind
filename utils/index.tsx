@@ -9,5 +9,5 @@ export const getObjectWithMostMessages = (o: any) => {
     return Object.values(o).find((m: any) => m.value === Math.max(...messagesCounts))
 }
 
-const utils = {formatNumber, getObjectWithMostMessages}
-export default utils
+// const utils = {formatNumber, getObjectWithMostMessages}
+// export default utils

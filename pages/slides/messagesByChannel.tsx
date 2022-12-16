@@ -2,7 +2,7 @@ import styles from '../../styles/Slides.module.css'
 import { useEffect, useState } from 'react';
 import BarChart from '../components/BarChart';
 import { stringify } from 'querystring';
-import { formatNumber } from '../utils';
+import { formatNumber } from '../../utils';
 
 // type props = {
 //     key: string;

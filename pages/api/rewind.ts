@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getObjectWithMostMessages } from '../utils';
+import { getObjectWithMostMessages } from '../../utils';
 
 require('dotenv').config()
 const mysql = require('mysql2/promise')
