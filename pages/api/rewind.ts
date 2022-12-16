@@ -54,6 +54,8 @@ export default async function handler(
       channels: blobToJson(userData.messages_by_channel)
     }
 
+    const avatar = userData.user_id === '173273321612378112' ? 'https://cdn.discordapp.com/avatars/173273321612378112/f744329c97fc907382ed4e2fef642568.png?size=1024' : userData.avatar
+
     // res.json(user)
     res.status(200).json({
       username: userData.username,
@@ -63,7 +65,7 @@ export default async function handler(
       messagesByMonth: messagesByMonth,
       messagesByChannel: messagesByChannel,
       joinedAt: userData.joined_at,
-      profilePicture: userData.avatar
+      profilePicture: avatar
     })
   })
   .catch((e: any) => res.status(500).json(e))
