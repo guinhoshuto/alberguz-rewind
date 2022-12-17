@@ -21,7 +21,7 @@ const Resumo = (resumo: any) => {
                     <div className='flex flex-col gap-16'>
                         <div>
                             <span className='lg:text-8xl md:text-8xl text-5xl md:w-1/2 sm:w-full font-black'>
-                                {formatNumber(resumo.qtdAll)}
+                                {formatNumber(resumo.qtd)}
                             </span><br/>
                             <span className='text-azoxo text-2xl font-black'>Mensagens Enviadas</span>
                         </div>
